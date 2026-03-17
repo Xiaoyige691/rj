@@ -1,0 +1,357 @@
+此包为lg佬通用版本修改版 - 第 6 版。
+
+**** 全量更新 其他资源各自保存 ****
+
+如果能看明白，请修改！如果不明白，请勿修改。
+-----------------*----------
+本说明共计：11 点说明
+-----------------*----------
+
+具体说明：
+-----------------*----------
+1、解压包路径
+-----------------*----------
+影视+解压到：
+/storage/emulated/0/VodPlus/
+/storage/emulated/0/TVData
+
+
+-----------------*----------
+2、配置点播：
+-----------------*----------
+file://VodPlus/index.json
+
+
+-----------------*----------
+3、站点使用：
+-----------------*----------
+关于接口几个源站：
+   
+   站点：🔌  切换本地包"
+   功能：PHP动态端口一键适应
+   要点：更改端口后请重启一次壳子
+   食用：
+    如果你更改了PHP服务默认端口，则需要点击 第二个源站，快速更新php服务端口，再返回长按主页图标即可刷新，后面的几个源站也可正常点击切换了！没更改就不需要操作，默认即可！
+   
+   站点：💬  弹 幕
+   功能：本地开启弹幕，可本机也可局域网使用
+   禁忌：必须先实验室安装nodejs环境，安装Danmu API服务，实验室lab.json已经配置
+   
+   站点：🚫  纯本地(禁搜)
+   功能：搜索本地目录所有JSON、M3U、TXT纯文件类资源
+   禁忌：不要快速搜索，会崩壳，新版PeekPili会适配禁搜。
+   
+   站点：🔍  快搜资源
+   功能：搜索本地所有脚本类文件，可以快速搜索影视名称，不会崩壳。
+   禁忌：无
+   
+   站点：⚡  合并道长
+   功能：在快搜资源+道长部分主体资源
+   再长按主页图标刷新接口返回即可。
+   禁忌：drpy-nide服务必须正常
+   
+   站点：💎  专享道长
+   功能：独自使用drpy-node接口，只能本机提供drpy-node后台服务。
+   再长按主页图标刷新接口返回即可。
+   禁忌：道长Drpy一键运行服务必须正常
+   
+   站点：📁  资源管理
+   功能：本地资源管理，
+   禁忌：可查看源码FileExplorer.php，修改配置713-762行，切忌乱改
+   
+   站点：🌟  全能王
+   功能：本地资源搜索
+   禁忌：：可查看源码 全能王/自用本地资源管理器 (优化版).php
+   
+   站点：🎤  爱KTV
+   功能：本地KTV数据库
+   禁忌：：文件必须在这个目录下，切忌改名：/storage/emulated/0/TVData/db/song_9c8ec.db
+   
+如果合并、只用道长接口失败或者无反应，应该是PeekPili后台drpy-node没运行或者看着运行，可api异常。浏览器输入地址看日志：
+http://127.0.0.1:port/config.php?mode=insert
+http://127.0.0.1:port/config.php?mode=cover
+也可直接访问drpy-node服务：http://127.0.0.1:5757能否访问主界面，能，就正常，否则不正常。
+重启壳子或者重启drpy-node服务即可。
+
+-----------------*----------
+4、关于 全能王 I 爬虫
+-----------------*----------
+
+接口源站：全能王 | 爬虫
+
+（1）、服务器设置：
+网站目录设置为：
+/storage/emulated/0/VodPlus/wwwroot
+
+爬虫目录设置为：
+/storage/emulated/0/VodPlus/wwwroot/全能王
+
+勾选PHP管理位置靠前，保存并应用，刷新或者重启壳子即可，重启壳子哦！
+
+（2）、源站切换
+
+选择 自用本地资源管理器 (优化版).php
+或者其他php，刷新或者重启壳子即可
+
+
+特此说明:
+
+VodPlus/wwwroot/瑟瑟[秘]、文件类[秘] 两个目录文件在接口内默认配置隐藏，可在VodPlus/wwwroot/config.php搜索如下代码处修改:
+$hideSecretSites = true
+修改后，再次点击 快速搜索资源 站点，刷新接口即可开启或者关闭瑟瑟[秘]资源。
+
+/**
+ * 站点文件隐藏开关 - 控制目录名带"[秘]"的站点是否隐藏
+ * true: 隐藏 (hide: 1)
+ * false: 不隐藏 (hide: 0)
+ */
+$hideSecretSites = false; // 可根据需要修改为 true 或 false
+
+-----------------*----------
+5、关于道长node服务：(此项已经集成到实验室lab.json了)
+-----------------*----------  
+
+   此版本不再依赖termux安装node环境模块，而是直接下载道长drpy-node完整模块包，解压到道长目录即可
+
+目录：VodPlus/wwwroot/道长
+
+（1）、导入道长文件：下载drpy-node包，将道长包解压到道长目录，不需要外层多余目录drpy-node哦！
+
+下载地址：
+https://yydf.540734621.xyz/drpys.zip
+
+（2）、修改目录内环境变量文件：
+强调：运行之前，务必修改环境变量文件：
+路径：
+/storage/emulated/0/VodPlus/wwwroot/道长/.env.development重命名修改为：.env
+
+
+（3）、影视+实验室安装nodejs环境
+ 选择运行脚本
+  - ①、脚本路径
+  /storage/emulated/0/VodPlus/wwwroot/道长/index.js
+  - ②、点击运行，确保正常运行！
+  - ③、浏览器测试是否运行正常，有数据即正常
+  http://127.0.0.1:5757/config/1
+
+（4）、也可实验室NODEJS环境直接运行： 道长Drpy一键运行。
+默认下载解压到 ：
+/storage/emulated/0/VodPlus/drpy-node目录，同样去修改.env.development重命名修改为：.env
+
+-----------------*----------
+6、关于丢源文件，更新接口
+-----------------*----------
+
+ ① 、 XBPQ源文件、XYQ源文件、JS[Drpy]源文件，分别丢这三个特殊目录，不可乱丢，务必固定在此目录。
+ 如果这三类文件又是短剧的，丢对应目录内的子目录：短剧[短] 目录内即可。这与顶层目录：看剧[短]  不一样，这看剧[短]目录内丢非XBPQ、非XYQ、非JS[Drpy]类的短剧文件！！
+ 
+ ② 、小说、漫画文件，建议丢：漫画类[画]、阅读类[书]；音乐类丢：音乐类[听] 目录
+ 
+ ③、 其他文件按目录名称丢即可，不强求！！反正脚本会自动搜！
+ 
+ 注意：目录标签不要私自更改，他是适配影视+标签分类的，如果影视+目前没适配，后续适配就ok，比如：短剧
+ 
+-----------------*---------- 
+7、强烈提示：
+-----------------*---------- 
+
+ ①、每次丢了文件，请及时点击你喜欢的线路站点，然后长按主页图标即可刷新后接口更新！
+ 
+ ②、XBPQ目录、XYQ目录、JS[Drpy]目录不要轻易更改名称，如果你要改，请匹配config.php的特殊目录名称关键词同步更改！
+ 
+ ③、如果需要添加自己固定的源站点，并保持永久固定，可在/lib/config.json基础模板里添加，同时将你添加的站点的api属性值，以关键词添加到config.php脚本如下代码配置里，同时将config.json复制一份到/wwwroot目录替换源config.json文件立即生效！
+ 
+ 注意格式正确！！！
+ // 覆盖模式中需要保留config.json的关键词列表（config.json内站点sites.api字段包含这些关键词将被保留）
+define('COVER_KEEP_KEYWORDS', ['lf_search3_min.js', 'csp_PhpServer', 'config', 'start.py', 'csp_爱KTV']); 
+//这儿方括号里添加api关键词，英文逗号与空格分隔
+ -----------------*----------
+ ④、关于影视+T4代理转发
+ -----------------*----------
+ 前提条件：
+ 影视+ 设置---个性设置--Spider API--开
+ 
+ 文件二选一即可：
+ 
+ /storage/emulated/0/VodPlus/Proxy目录下：T4Proxy.js
+ 
+ /storage/emulated/0/VodPlus/wwwroot/目录下：T4Proxy.php
+ 
+ 命令如下：
+ 
+ T4Proxy.php文件：
+ -----------------
+ 影视+实验室---PHP---命令列表右侧点击+号，添加命令如下：
+ 
+ 标题：T4Proxy.php 可随意
+ 命令说明：T4Proxy PHP代理  可随意
+ 执行命令：php -S 0.0.0.0:10999 /storage/emulated/0/VodPlus/wwwroot/T4Proxy.php
+ 自动运行：开关打开
+ 保存
+ 运行
+ 然后调用接口，这儿只提示：
+ 本机壳子调用：
+ http://127.0.0.1:10999?ac=config
+ 局域网调用：
+ http://本机ip:10999?ac=config
+ 
+ T4Proxy.js文件：(此项已经集成到实验室lab.json了)
+ ---------------
+ 影视+实验室---NODEJS---命令列表右侧点击+号，添加命令如下：
+ 
+ 标题：T4Proxy.js 可随意
+ 命令说明：T4Proxy NODEJS代理  可随意
+ 执行命令：node /storage/emulated/0/VodPlus/Proxy/T4Proxy.js --port 10598
+ 也可不带--port 10598，默认10998
+ 自动运行：开关打开
+ 保存
+ 运行
+ 然后根据日志提示，调用，这儿只提示接口调用：
+ 本机壳子调用：
+ http://127.0.0.1:10598?ac=config
+ 局域网调用：
+ http://本机ip:10598?ac=config
+ 
+-----------------*----------
+8、关于弹幕本地部署：(此项也已经集成到实验室lab.json了)
+-----------------*----------
+如果你直接使用这完整包的danmu_api目录，请直接跳到下面第 ⑦ 点操作，如果你想完整体验本地部署弹幕api，就从下 ① 开启。
+
+
+使用工具：Termux
+原因：安卓手机限制
+开搞：
+
+①、 下载弹幕项目文件：danmu_api.zip
+
+https://yydf.540734621.xyz/danmu_api.zip
+
+②、 解压到/storage/emulated/0/VodPlus/目录下，注意，解压后danmu_api目录下还有一个danmu_api目录，才是符合本次教程的路径示例，不要有多余外层目录，切记！
+
+③、 复制整个项目到 Termux 主目录
+cp -r /storage/emulated/0/VodPlus/danmu_api/* ~/danmu_api/
+
+④、 进入 Termux 内部目录
+cd ~/danmu_api
+
+⑤、 安装依赖
+npm install
+
+⑥、 将 Termux 内部安装的 node_modules 复制到外部存储：
+
+cp -r ~/danmu_api/node_modules /storage/emulated/0/VodPlus/danmu_api/
+
+⑦、 直接在影视+NODEJS环境运行：
+影视+实验室---NODEJS---命令列表，右侧+号---如下添加命令：
+
+标题：danmu-api
+命令说明：danmu-api本地运行
+执行的命令：
+node /storage/emulated/0/VodPlus/danmu_api/danmu_api/server.js
+自动运行(app启动时)：开
+保存
+运行
+
+可重启影视+看是否正常运行，如果已经正常运行，请看日志，获取弹幕接口地址：
+
+主服务器地址(主要调用)：
+http://127.0.0.1:9321/token
+比如：
+http://127.0.0.1:9321/87654321
+
+代理服务器地址：
+http://127.0.0.1:5321/87654321
+
+此token为你在弹幕项目如下路径.env环境变量文件里的token，模式87654321
+
+/storage/emulated/0/VodPlus/danmu_api/config/.env
+
+此.env文件配置，请自行阅读，自行配置，配置即可生效。
+
+# 删除 Termux 主目录中的 danmu_api
+rm -rf ~/danmu_api
+
+⑧、 弹幕接口使用
+接口站点配置：
+
+方式1、长期保存
+
+/storage/emulated/0/VodPlus/wwwroot/lib/config.json
+
+/storage/emulated/0/VodPlus/wwwroot/config.json
+
+修改配置如下：
+           {
+            "name": "🟢 弹幕",
+            "key": "danmu",
+            "type": 3,
+            "api": "csp_DanmakuSpider",
+            "jar": "./lib/danmu.jar",
+            "searchable": 0,
+            "quickSearch": 0,
+            "changeable": 0,
+            "ext": {
+                "apiUrl": "http://127.0.0.1:9321/87654321",
+                "autoPushEnabled": true,
+                "danmakuStyle": "模板一",
+                "lpAlpha": 0.9
+            }
+        },
+
+方式2、临时使用
+
+直接在影视+壳子接口站点：🟢 弹幕
+弹幕配置--填入api地址，
+http://127.0.0.1:9321/87654321
+保存即可！其他自行折腾！！
+
+播放器开启弹幕，弹幕自动与手动，请自行折腾！恕不奉陪！
+
+-----------------*----------
+9、关于VodPlud-web
+-----------------*----------
+
+vodplus-web目录完整解压到/storage/emulated/0/VodPlus/目录里
+
+然后进入影视+实验室,在nodejs中新建一个命令:
+node /storage/emulated/0/VodPlus/vodplus-web/serve.js 3000
+
+日志会显示链接,复制局域网链接在浏览器中访问即可。
+
+
+10、关于老张、江湖、粉妹、潇洒、真心 等外部本地源
+
+将各自包按照要求存放于根目录处即可
+
+点击如下源站点，即可快速切换线路：
+
+🔌  切换本地包
+
+提示：根据说明与视频操作即可
+
+11、关于lab.json
+这是影视+实验室环境安装配置文件
+
+使用：
+影视+实验室----右上角齿轮----接口切换----选择本地----请输入接口地址----默认不改变----保存即可----剩下的就是安装与折腾。
+
+提示：
+默认lab.json路径：VodPlus/lab.json，
+默认接口地址：http://127.0.0.1:9978/file/VodPlus/lab.json，
+否则你就要手动处理这个环节的路径：请输入接口地址。
+
+
+12、关于影视+实验室
+
+①、安装
+影视+  实验室 ---- 右上角齿轮 ---- 接口切换 本地 ---- 默认确定。
+逐次安装即可
+
+②、实验室lab.json内置的代理工具
+
+默认内置mihomo、singbox、xray、shadowsocks
+
+安装即可，但配置文件都只是个示例，节点你照例添加即可。都在 /VodPlus/EnvFiles/config/ 目录。
+
+这目录路径下是上述代理工具的配置文件config.json、config.yaml
+我只提供了模板，自己填入订阅地址或者单个节点信息。其中mihomo配置config.yaml里只填入订阅链接即可。
